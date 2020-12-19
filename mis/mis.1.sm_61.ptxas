@@ -1,0 +1,17 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z4mis1PiS_S_S_S_S_S_ii' for 'sm_61'
+ptxas info    : Function properties for _Z4mis1PiS_S_S_S_S_S_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 13 registers, 384 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z4mis3PiS_S_i' for 'sm_61'
+ptxas info    : Function properties for _Z4mis3PiS_S_i
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 5 registers, 348 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z4initPiS_S_ii' for 'sm_61'
+ptxas info    : Function properties for _Z4initPiS_S_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 10 registers, 352 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z4mis2PiS_S_S_S_S_S_ii' for 'sm_61'
+ptxas info    : Function properties for _Z4mis2PiS_S_S_S_S_S_ii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 12 registers, 384 bytes cmem[0]

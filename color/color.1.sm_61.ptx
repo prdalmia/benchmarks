@@ -1,0 +1,188 @@
+
+
+
+
+
+
+
+
+.version 5.0
+.target sm_61
+.address_size 64
+
+
+
+.visible .entry _Z12color1_pushoPiS_S_S_S_S_S_iii(
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_0,
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_1,
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_2,
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_3,
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_4,
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_5,
+.param .u64 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_6,
+.param .u32 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_7,
+.param .u32 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_8,
+.param .u32 _Z12color1_pushoPiS_S_S_S_S_S_iii_param_9
+)
+{
+.reg .pred %p<8>;
+.reg .b32 %r<39>;
+.reg .b64 %rd<39>;
+
+
+ld.param.u64 %rd9, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_0];
+ld.param.u64 %rd10, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_1];
+ld.param.u64 %rd11, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_2];
+ld.param.u64 %rd12, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_3];
+ld.param.u64 %rd13, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_4];
+ld.param.u64 %rd14, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_5];
+ld.param.u64 %rd15, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_6];
+ld.param.u32 %r14, [_Z12color1_pushoPiS_S_S_S_S_S_iii_param_8];
+mov.u32 %r16, %ctaid.x;
+mov.u32 %r17, %ntid.x;
+mov.u32 %r18, %tid.x;
+mad.lo.s32 %r19, %r17, %r16, %r18;
+mov.u32 %r38, 0;
+setp.ge.s32	%p1, %r19, %r14;
+@%p1 bra BB0_10;
+
+mov.u32 %r38, 0;
+cvta.to.global.u64 %rd19, %rd9;
+cvta.to.global.u64 %rd22, %rd11;
+cvta.to.global.u64 %rd25, %rd12;
+cvta.to.global.u64 %rd27, %rd10;
+cvta.to.global.u64 %rd31, %rd15;
+mov.u32 %r36, %r19;
+
+BB0_2:
+mov.u32 %r3, %r36;
+cvta.to.global.u64 %rd16, %rd13;
+cvt.s64.s32	%rd1, %r3;
+mul.wide.s32 %rd17, %r3, 4;
+add.s64 %rd18, %rd16, %rd17;
+ld.global.u32 %r24, [%rd18];
+setp.ne.s32	%p2, %r24, -1;
+@%p2 bra BB0_9;
+
+shl.b64 %rd20, %rd1, 2;
+add.s64 %rd21, %rd19, %rd20;
+ld.global.u32 %r37, [%rd21];
+ld.global.u32 %r5, [%rd21+4];
+setp.ge.s32	%p3, %r37, %r5;
+@%p3 bra BB0_9;
+
+add.s64 %rd24, %rd22, %rd20;
+ld.global.u32 %r6, [%rd24];
+mul.wide.s32 %rd26, %r37, 4;
+add.s64 %rd38, %rd25, %rd26;
+add.s64 %rd37, %rd27, %rd26;
+
+BB0_5:
+ld.global.u32 %r25, [%rd37];
+cvt.s64.s32	%rd6, %r25;
+mul.wide.s32 %rd29, %r25, 4;
+add.s64 %rd30, %rd16, %rd29;
+ld.global.u32 %r26, [%rd30];
+setp.ne.s32	%p4, %r26, -1;
+@%p4 bra BB0_8;
+
+ld.global.u32 %r27, [%rd38];
+setp.lt.s32	%p5, %r27, 2;
+@%p5 bra BB0_8;
+
+shl.b64 %rd32, %rd6, 2;
+add.s64 %rd33, %rd31, %rd32;
+atom.global.max.s32 %r29, [%rd33], %r6;
+mov.u32 %r38, 1;
+
+BB0_8:
+add.s64 %rd38, %rd38, 4;
+add.s64 %rd37, %rd37, 4;
+add.s32 %r37, %r37, 1;
+setp.lt.s32	%p6, %r37, %r5;
+@%p6 bra BB0_5;
+
+BB0_9:
+mov.u32 %r31, %nctaid.x;
+mad.lo.s32 %r12, %r31, %r17, %r3;
+setp.lt.s32	%p7, %r12, %r14;
+mov.u32 %r36, %r12;
+@%p7 bra BB0_2;
+
+BB0_10:
+cvta.to.global.u64 %rd34, %rd14;
+mul.wide.u32 %rd35, %r19, 4;
+add.s64 %rd36, %rd34, %rd35;
+st.global.u32 [%rd36], %r38;
+ret;
+}
+
+
+.visible .entry _Z11color2_pushPiS_S_iii(
+.param .u64 _Z11color2_pushPiS_S_iii_param_0,
+.param .u64 _Z11color2_pushPiS_S_iii_param_1,
+.param .u64 _Z11color2_pushPiS_S_iii_param_2,
+.param .u32 _Z11color2_pushPiS_S_iii_param_3,
+.param .u32 _Z11color2_pushPiS_S_iii_param_4,
+.param .u32 _Z11color2_pushPiS_S_iii_param_5
+)
+{
+.reg .pred %p<5>;
+.reg .b32 %r<17>;
+.reg .b64 %rd<13>;
+
+
+ld.param.u64 %rd7, [_Z11color2_pushPiS_S_iii_param_0];
+ld.param.u64 %rd8, [_Z11color2_pushPiS_S_iii_param_1];
+ld.param.u64 %rd9, [_Z11color2_pushPiS_S_iii_param_2];
+ld.param.u32 %r6, [_Z11color2_pushPiS_S_iii_param_3];
+ld.param.u32 %r7, [_Z11color2_pushPiS_S_iii_param_4];
+mov.u32 %r1, %ntid.x;
+mov.u32 %r8, %ctaid.x;
+mov.u32 %r9, %tid.x;
+mad.lo.s32 %r16, %r1, %r8, %r9;
+setp.ge.s32	%p1, %r16, %r7;
+@%p1 bra BB1_7;
+
+cvta.to.global.u64 %rd1, %rd7;
+cvta.to.global.u64 %rd2, %rd9;
+cvta.to.global.u64 %rd3, %rd8;
+mov.u32 %r10, %nctaid.x;
+mul.lo.s32 %r3, %r10, %r1;
+
+BB1_2:
+mov.u32 %r4, %r16;
+cvt.s64.s32	%rd4, %r4;
+mul.wide.s32 %rd10, %r4, 4;
+add.s64 %rd5, %rd3, %rd10;
+ld.global.u32 %r11, [%rd5];
+setp.ne.s32	%p2, %r11, -1;
+@%p2 bra BB1_6;
+
+shl.b64 %rd11, %rd4, 2;
+add.s64 %rd6, %rd2, %rd11;
+atom.global.add.u32 %r12, [%rd6], 0;
+add.s64 %rd12, %rd1, %rd11;
+ld.global.u32 %r13, [%rd12];
+setp.lt.s32	%p3, %r13, %r12;
+@%p3 bra BB1_5;
+bra.uni BB1_4;
+
+BB1_5:
+atom.global.exch.b32 %r14, [%rd6], -1;
+bra.uni BB1_6;
+
+BB1_4:
+st.global.u32 [%rd5], %r6;
+
+BB1_6:
+cvt.u32.u64	%r15, %rd4;
+add.s32 %r16, %r3, %r15;
+setp.lt.s32	%p4, %r16, %r7;
+@%p4 bra BB1_2;
+
+BB1_7:
+ret;
+}
+
+

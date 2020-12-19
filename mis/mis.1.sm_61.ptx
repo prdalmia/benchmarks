@@ -1,0 +1,317 @@
+
+
+
+
+
+
+
+
+.version 5.0
+.target sm_61
+.address_size 64
+
+
+
+.visible .entry _Z4initPiS_S_ii(
+.param .u64 _Z4initPiS_S_ii_param_0,
+.param .u64 _Z4initPiS_S_ii_param_1,
+.param .u64 _Z4initPiS_S_ii_param_2,
+.param .u32 _Z4initPiS_S_ii_param_3,
+.param .u32 _Z4initPiS_S_ii_param_4
+)
+{
+.reg .pred %p<2>;
+.reg .b32 %r<8>;
+.reg .b64 %rd<11>;
+
+
+ld.param.u64 %rd1, [_Z4initPiS_S_ii_param_0];
+ld.param.u64 %rd2, [_Z4initPiS_S_ii_param_1];
+ld.param.u64 %rd3, [_Z4initPiS_S_ii_param_2];
+ld.param.u32 %r2, [_Z4initPiS_S_ii_param_3];
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r4, %r3, %r5;
+setp.ge.s32	%p1, %r1, %r2;
+@%p1 bra BB0_2;
+
+cvta.to.global.u64 %rd4, %rd2;
+mul.wide.s32 %rd5, %r1, 4;
+add.s64 %rd6, %rd4, %rd5;
+mov.u32 %r6, -1;
+st.global.u32 [%rd6], %r6;
+cvta.to.global.u64 %rd7, %rd3;
+add.s64 %rd8, %rd7, %rd5;
+st.global.u32 [%rd8], %r6;
+cvta.to.global.u64 %rd9, %rd1;
+add.s64 %rd10, %rd9, %rd5;
+mov.u32 %r7, 0;
+st.global.u32 [%rd10], %r7;
+
+BB0_2:
+ret;
+}
+
+
+.visible .entry _Z4mis1PiS_S_S_S_S_S_ii(
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_0,
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_1,
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_2,
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_3,
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_4,
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_5,
+.param .u64 _Z4mis1PiS_S_S_S_S_S_ii_param_6,
+.param .u32 _Z4mis1PiS_S_S_S_S_S_ii_param_7,
+.param .u32 _Z4mis1PiS_S_S_S_S_S_ii_param_8
+)
+{
+.reg .pred %p<7>;
+.reg .b16 %rs<9>;
+.reg .b32 %r<27>;
+.reg .b64 %rd<32>;
+
+
+ld.param.u64 %rd8, [_Z4mis1PiS_S_S_S_S_S_ii_param_0];
+ld.param.u64 %rd9, [_Z4mis1PiS_S_S_S_S_S_ii_param_1];
+ld.param.u64 %rd10, [_Z4mis1PiS_S_S_S_S_S_ii_param_2];
+ld.param.u64 %rd13, [_Z4mis1PiS_S_S_S_S_S_ii_param_4];
+ld.param.u64 %rd11, [_Z4mis1PiS_S_S_S_S_S_ii_param_5];
+ld.param.u64 %rd12, [_Z4mis1PiS_S_S_S_S_S_ii_param_6];
+ld.param.u32 %r9, [_Z4mis1PiS_S_S_S_S_S_ii_param_7];
+cvta.to.global.u64 %rd1, %rd13;
+mov.u32 %r10, %ctaid.x;
+mov.u32 %r11, %ntid.x;
+mov.u32 %r12, %tid.x;
+mad.lo.s32 %r25, %r10, %r11, %r12;
+mov.u16 %rs8, 0;
+setp.ge.s32	%p1, %r25, %r9;
+@%p1 bra BB1_9;
+
+cvta.to.global.u64 %rd2, %rd11;
+mov.u16 %rs8, 0;
+cvta.to.global.u64 %rd16, %rd8;
+cvta.to.global.u64 %rd19, %rd10;
+cvta.to.global.u64 %rd22, %rd9;
+
+BB1_2:
+cvt.s64.s32	%rd3, %r25;
+mul.wide.s32 %rd14, %r25, 4;
+add.s64 %rd15, %rd1, %rd14;
+ld.global.u32 %r13, [%rd15];
+setp.ne.s32	%p2, %r13, -1;
+@%p2 bra BB1_8;
+
+shl.b64 %rd17, %rd3, 2;
+add.s64 %rd18, %rd16, %rd17;
+ld.global.u32 %r26, [%rd18];
+ld.global.u32 %r4, [%rd18+4];
+mov.u16 %rs8, 1;
+setp.ge.s32	%p3, %r26, %r4;
+@%p3 bra BB1_8;
+
+add.s64 %rd21, %rd19, %rd17;
+ld.global.u32 %r5, [%rd21];
+mul.wide.s32 %rd23, %r26, 4;
+add.s64 %rd31, %rd22, %rd23;
+
+BB1_5:
+ld.global.u32 %r14, [%rd31];
+cvt.s64.s32	%rd6, %r14;
+mul.wide.s32 %rd24, %r14, 4;
+add.s64 %rd25, %rd1, %rd24;
+ld.global.u32 %r15, [%rd25];
+setp.ne.s32	%p4, %r15, -1;
+@%p4 bra BB1_7;
+
+shl.b64 %rd26, %rd6, 2;
+add.s64 %rd27, %rd2, %rd26;
+atom.global.min.s32 %r16, [%rd27], %r5;
+
+BB1_7:
+add.s32 %r26, %r26, 1;
+add.s64 %rd31, %rd31, 4;
+setp.lt.s32	%p5, %r26, %r4;
+@%p5 bra BB1_5;
+
+BB1_8:
+mov.u32 %r18, %nctaid.x;
+mad.lo.s32 %r25, %r18, %r11, %r25;
+setp.lt.s32	%p6, %r25, %r9;
+@%p6 bra BB1_2;
+
+BB1_9:
+mad.lo.s32 %r22, %r10, %r11, %r12;
+cvta.to.global.u64 %rd28, %rd12;
+mul.wide.s32 %rd29, %r22, 4;
+add.s64 %rd30, %rd28, %rd29;
+cvt.u32.u16	%r23, %rs8;
+cvt.s32.s8 %r24, %r23;
+st.global.u32 [%rd30], %r24;
+ret;
+}
+
+
+.visible .entry _Z4mis2PiS_S_S_S_S_S_ii(
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_0,
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_1,
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_2,
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_3,
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_4,
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_5,
+.param .u64 _Z4mis2PiS_S_S_S_S_S_ii_param_6,
+.param .u32 _Z4mis2PiS_S_S_S_S_S_ii_param_7,
+.param .u32 _Z4mis2PiS_S_S_S_S_S_ii_param_8
+)
+{
+.reg .pred %p<8>;
+.reg .b32 %r<24>;
+.reg .b64 %rd<35>;
+
+
+ld.param.u64 %rd10, [_Z4mis2PiS_S_S_S_S_S_ii_param_0];
+ld.param.u64 %rd11, [_Z4mis2PiS_S_S_S_S_S_ii_param_1];
+ld.param.u64 %rd12, [_Z4mis2PiS_S_S_S_S_S_ii_param_2];
+ld.param.u64 %rd13, [_Z4mis2PiS_S_S_S_S_S_ii_param_3];
+ld.param.u64 %rd15, [_Z4mis2PiS_S_S_S_S_S_ii_param_4];
+ld.param.u64 %rd16, [_Z4mis2PiS_S_S_S_S_S_ii_param_5];
+ld.param.u64 %rd14, [_Z4mis2PiS_S_S_S_S_S_ii_param_6];
+ld.param.u32 %r10, [_Z4mis2PiS_S_S_S_S_S_ii_param_7];
+cvta.to.global.u64 %rd1, %rd16;
+cvta.to.global.u64 %rd2, %rd15;
+mov.u32 %r11, %ctaid.x;
+mov.u32 %r1, %ntid.x;
+mov.u32 %r12, %tid.x;
+mad.lo.s32 %r22, %r11, %r1, %r12;
+setp.ge.s32	%p1, %r22, %r10;
+@%p1 bra BB2_10;
+
+cvta.to.global.u64 %rd3, %rd12;
+cvta.to.global.u64 %rd4, %rd14;
+mov.u32 %r13, %nctaid.x;
+mul.lo.s32 %r3, %r13, %r1;
+cvta.to.global.u64 %rd22, %rd13;
+cvta.to.global.u64 %rd25, %rd10;
+cvta.to.global.u64 %rd28, %rd11;
+
+BB2_2:
+cvt.s64.s32	%rd5, %r22;
+mul.wide.s32 %rd17, %r22, 4;
+add.s64 %rd18, %rd4, %rd17;
+atom.global.add.u32 %r14, [%rd18], 0;
+add.s64 %rd19, %rd3, %rd17;
+ld.global.u32 %r15, [%rd19];
+setp.gt.s32	%p2, %r15, %r14;
+@%p2 bra BB2_9;
+
+shl.b64 %rd20, %rd5, 2;
+add.s64 %rd21, %rd2, %rd20;
+ld.global.u32 %r16, [%rd21];
+setp.ne.s32	%p3, %r16, -1;
+@%p3 bra BB2_9;
+
+add.s64 %rd24, %rd22, %rd20;
+mov.u32 %r17, 2;
+st.global.u32 [%rd24], %r17;
+add.s64 %rd26, %rd25, %rd20;
+ld.global.u32 %r23, [%rd26];
+ld.global.u32 %r6, [%rd26+4];
+add.s64 %rd27, %rd1, %rd20;
+atom.global.exch.b32 %r18, [%rd27], -2;
+setp.ge.s32	%p4, %r23, %r6;
+@%p4 bra BB2_9;
+
+mul.wide.s32 %rd29, %r23, 4;
+add.s64 %rd34, %rd28, %rd29;
+
+BB2_6:
+ld.global.u32 %r19, [%rd34];
+cvt.s64.s32	%rd8, %r19;
+mul.wide.s32 %rd30, %r19, 4;
+add.s64 %rd31, %rd2, %rd30;
+ld.global.u32 %r20, [%rd31];
+setp.ne.s32	%p5, %r20, -1;
+@%p5 bra BB2_8;
+
+shl.b64 %rd32, %rd8, 2;
+add.s64 %rd33, %rd1, %rd32;
+atom.global.exch.b32 %r21, [%rd33], -2;
+
+BB2_8:
+add.s32 %r23, %r23, 1;
+add.s64 %rd34, %rd34, 4;
+setp.lt.s32	%p6, %r23, %r6;
+@%p6 bra BB2_6;
+
+BB2_9:
+add.s32 %r22, %r3, %r22;
+setp.lt.s32	%p7, %r22, %r10;
+@%p7 bra BB2_2;
+
+BB2_10:
+ret;
+}
+
+
+.visible .entry _Z4mis3PiS_S_i(
+.param .u64 _Z4mis3PiS_S_i_param_0,
+.param .u64 _Z4mis3PiS_S_i_param_1,
+.param .u64 _Z4mis3PiS_S_i_param_2,
+.param .u32 _Z4mis3PiS_S_i_param_3
+)
+{
+.reg .pred %p<4>;
+.reg .b32 %r<15>;
+.reg .b64 %rd<14>;
+
+
+ld.param.u64 %rd5, [_Z4mis3PiS_S_i_param_0];
+ld.param.u64 %rd6, [_Z4mis3PiS_S_i_param_1];
+ld.param.u64 %rd7, [_Z4mis3PiS_S_i_param_2];
+ld.param.u32 %r6, [_Z4mis3PiS_S_i_param_3];
+mov.u32 %r7, %ctaid.x;
+mov.u32 %r1, %ntid.x;
+mov.u32 %r8, %tid.x;
+mad.lo.s32 %r14, %r7, %r1, %r8;
+setp.ge.s32	%p1, %r14, %r6;
+@%p1 bra BB3_6;
+
+cvta.to.global.u64 %rd1, %rd7;
+cvta.to.global.u64 %rd2, %rd6;
+cvta.to.global.u64 %rd3, %rd5;
+mov.u32 %r9, %nctaid.x;
+mul.lo.s32 %r3, %r9, %r1;
+
+BB3_2:
+mov.u32 %r4, %r14;
+cvt.s64.s32	%rd4, %r4;
+mul.wide.s32 %rd8, %r4, 4;
+add.s64 %rd9, %rd3, %rd8;
+atom.global.add.u32 %r10, [%rd9], 0;
+setp.eq.s32	%p2, %r10, -2;
+@%p2 bra BB3_4;
+bra.uni BB3_3;
+
+BB3_4:
+shl.b64 %rd12, %rd4, 2;
+add.s64 %rd13, %rd2, %rd12;
+mov.u32 %r12, -2;
+st.global.u32 [%rd13], %r12;
+bra.uni BB3_5;
+
+BB3_3:
+shl.b64 %rd10, %rd4, 2;
+add.s64 %rd11, %rd1, %rd10;
+atom.global.exch.b32 %r11, [%rd11], 2147483647;
+
+BB3_5:
+cvt.u32.u64	%r13, %rd4;
+add.s32 %r14, %r3, %r13;
+setp.lt.s32	%p3, %r14, %r6;
+@%p3 bra BB3_2;
+
+BB3_6:
+ret;
+}
+
+

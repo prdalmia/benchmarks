@@ -1,0 +1,9 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z11color2_pushPiS_S_iii' for 'sm_61'
+ptxas info    : Function properties for _Z11color2_pushPiS_S_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 9 registers, 356 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z12color1_pushoPiS_S_S_S_S_S_iii' for 'sm_61'
+ptxas info    : Function properties for _Z12color1_pushoPiS_S_S_S_S_S_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 388 bytes cmem[0]
